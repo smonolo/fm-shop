@@ -1,4 +1,4 @@
-node_modules
-.next
-public
+node_modules/
+.next/
+public/
 package-lock.json
