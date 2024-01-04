@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={classNames(font.className, [
-          'bg-fm-dark text-fm-light m-0 flex min-h-screen w-full flex-col p-0',
+          'm-0 flex min-h-screen w-full flex-col bg-fm-dark p-0 text-fm-light',
         ])}
       >
         <section className="h-fit grow">

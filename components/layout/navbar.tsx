@@ -47,7 +47,7 @@ const Navbar: FC = () => {
           className="leading-none"
         />
       </Link>
-      <div className="bg-fm-cyan/10 flex w-fit items-center gap-7 rounded-full px-6 py-2.5">
+      <div className="flex w-fit items-center gap-7 rounded-full bg-fm-cyan/10 px-6 py-2.5">
         {links.map(({ text, href }) => (
           <Link
             key={text.toLowerCase()}
@@ -61,7 +61,7 @@ const Navbar: FC = () => {
       <Link
         href="https://fm-shop.tebex.io"
         target="_blank"
-        className="bg-fm-aqua text-fm-dark hover:bg-fm-cyan relative flex w-fit items-center gap-2 rounded-full px-6 py-2.5 transition-colors"
+        className="relative flex w-fit items-center gap-2 rounded-full bg-fm-aqua px-6 py-2.5 text-fm-dark transition-colors hover:bg-fm-cyan"
       >
         <span className="text-sm font-semibold">Shop now</span>
         <i className="bi bi-chevron-right text-xs" />
