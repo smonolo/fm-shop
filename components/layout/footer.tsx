@@ -67,16 +67,12 @@ const Footer: FC = () => {
     <footer className="mx-auto w-[90%] max-w-[1400px] justify-between">
       <div className="flex w-full justify-between gap-40 pb-6 text-sm">
         <section className="flex w-fit flex-col gap-4">
-          <h6 className="text-fm-grey font-medium">Copyright</h6>
+          <h6 className="text-fm-grey font-medium">Disclaimer</h6>
           <p>
             These works are protected by copyright, allowing for personal use.
             Commercial usage requires a formal license, and we kindly request
             that you refrain from distributing, modifying, or directly
-            replicating our maps without obtaining our explicit consent. We
-            highly value originality and discourage direct emulation of our
-            creations. For any inquiries regarding commercial use or
-            permissions, please contact us to engage in a discussion on mutually
-            agreeable terms.
+            replicating our maps without obtaining our explicit consent.
           </p>
         </section>
         <div className="flex w-fit gap-10">

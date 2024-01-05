@@ -20,13 +20,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={classNames(font.className, [
-          'bg-fm-dark text-fm-light m-0 flex min-h-screen w-full flex-col gap-10 p-0',
+          'bg-fm-dark text-fm-light relative m-0 flex min-h-screen w-full flex-col gap-10 p-0',
         ])}
       >
-        <section className="bg-fm-background h-fit grow bg-cover bg-center bg-no-repeat">
-          <Navbar />
-          <main>{children}</main>
-        </section>
+        <Navbar />
+        <main className="bg-fm-background h-fit grow bg-cover bg-center bg-no-repeat py-20">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

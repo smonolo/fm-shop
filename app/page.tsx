@@ -20,6 +20,7 @@ const Home: FC = () => {
         width={400}
         height={0}
         className="mx-auto"
+        draggable={false}
       />
     </div>
   )
