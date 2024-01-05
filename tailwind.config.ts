@@ -2,7 +2,6 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -16,6 +15,9 @@ const config: Config = {
     },
     backgroundImage: {
       'fm-background': 'url("/background.png")',
+    },
+    boxShadow: {
+      'fm-aqua': `0 0 30px -15px #2dd9ea`,
     },
   },
   plugins: [],

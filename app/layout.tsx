@@ -20,11 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={classNames(font.className, [
-          'bg-fm-dark text-fm-light relative m-0 flex min-h-screen w-full flex-col gap-10 p-0',
+          'relative m-0 flex min-h-screen w-full flex-col gap-10 bg-fm-dark p-0 text-fm-light',
         ])}
       >
         <Navbar />
-        <main className="bg-fm-background h-fit grow bg-cover bg-center bg-no-repeat py-20">
+        <main className="h-fit grow bg-fm-background bg-cover bg-center bg-no-repeat py-20">
           {children}
         </main>
         <Footer />
