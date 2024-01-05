@@ -38,7 +38,7 @@ const Footer: FC = () => {
         links: [
           {
             text: 'Shop',
-            href: '/shop',
+            href: 'https://store.fm-shop.it',
           },
           {
             text: 'Support',
@@ -55,7 +55,7 @@ const Footer: FC = () => {
         links: [
           {
             text: 'Discord',
-            href: '/discord',
+            href: 'https://discord.com/invite/fm-shop',
           },
         ],
       },
@@ -67,7 +67,7 @@ const Footer: FC = () => {
     <footer className="mx-auto w-[90%] max-w-[1400px] justify-between">
       <div className="flex w-full justify-between gap-40 pb-6 text-sm">
         <section className="flex w-fit flex-col gap-4">
-          <h6 className="font-medium text-fm-grey">Copyright</h6>
+          <h6 className="text-fm-grey font-medium">Copyright</h6>
           <p>
             These works are protected by copyright, allowing for personal use.
             Commercial usage requires a formal license, and we kindly request
@@ -82,12 +82,13 @@ const Footer: FC = () => {
         <div className="flex w-fit gap-10">
           {categories.map(({ title, links }) => (
             <section key={title.toLowerCase()} className="flex flex-col gap-4">
-              <h6 className="font-medium text-fm-grey">{title}</h6>
+              <h6 className="text-fm-grey font-medium">{title}</h6>
               <div className="flex flex-col gap-1">
                 {links.map(({ text, href }) => (
                   <Link
                     key={text.toLowerCase()}
                     href={href}
+                    target={href.startsWith('https') ? '_blank' : '_self'}
                     className="font-medium transition-colors"
                   >
                     {text}
@@ -98,7 +99,7 @@ const Footer: FC = () => {
           ))}
         </div>
       </div>
-      <div className="h-0.5 w-full bg-fm-cyan" />
+      <div className="bg-fm-cyan h-0.5 w-full" />
       <div className="flex w-full items-center justify-between gap-4 py-6 text-sm">
         <p>© FM SHOP 2023-{new Date().getFullYear()}</p>
         <p>Not affiliated with Cfx.re, FiveM or Rockstar Games.</p>

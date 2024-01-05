@@ -14,6 +14,9 @@ const config: Config = {
       'fm-light': '#ffffff',
       'fm-grey': '#7b7b7b',
     },
+    backgroundImage: {
+      'fm-background': 'url("/background.png")',
+    },
   },
   plugins: [],
 }
