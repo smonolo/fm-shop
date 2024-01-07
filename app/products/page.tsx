@@ -1,10 +1,16 @@
 'use client'
 
 import type { FC } from 'react'
-import UnderConstruction from '@/components/common/under-construction'
+import ProductsHeader from '@/components/products/header'
+import ProductsList from '@/components/products/list'
 
 const Products: FC = () => {
-  return <UnderConstruction />
+  return (
+    <section>
+      <ProductsHeader />
+      <ProductsList />
+    </section>
+  )
 }
 
 export default Products

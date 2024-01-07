@@ -2,17 +2,18 @@
 
 import type { FC } from 'react'
 
-const UnderConstruction: FC = () => {
+const ErrorBox: FC = () => {
   return (
     <div className="mx-auto mt-20 flex w-fit flex-col gap-4 text-center">
       <h1 className="text-[30px]/[35px] font-bold italic lg:text-[40px]/[50px]">
-        Under Construction
+        Something went wrong
       </h1>
       <p className="text-fm-aqua">
-        This page is still being created, check back later.
+        It looks like we could not perform the requested action. Please try
+        again later.
       </p>
     </div>
   )
 }
 
-export default UnderConstruction
+export default ErrorBox
