@@ -11,13 +11,13 @@ const config: Config = {
       'fm-cyan': '#03a3e3',
       'fm-aqua': '#2dd9ea',
       'fm-light': '#ffffff',
-      'fm-grey': '#7b7b7b',
+      'fm-gray': '#7b7b7b',
     },
     backgroundImage: {
       'fm-background': 'url("/background.png")',
     },
     boxShadow: {
-      'fm-aqua': `0 0 30px -15px #2dd9ea`,
+      'fm-aqua': '0 0 30px -15px #2dd9ea',
     },
   },
   plugins: [],

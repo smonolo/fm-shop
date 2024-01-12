@@ -67,7 +67,7 @@ const Footer: FC = () => {
     <footer className="mx-auto w-[90%] max-w-[1400px] justify-between">
       <div className="flex w-full flex-col justify-between gap-10 pb-6 text-sm md:flex-row md:gap-40">
         <section className="flex w-fit flex-col gap-2 md:gap-4">
-          <h6 className="font-medium text-fm-grey">Disclaimer</h6>
+          <h6 className="gray font-medium">Disclaimer</h6>
           <p>
             These works are protected by copyright, allowing for personal use.
             Commercial usage requires a formal license, and we kindly request
@@ -81,7 +81,7 @@ const Footer: FC = () => {
               key={title.toLowerCase()}
               className="flex flex-col gap-2 md:gap-4"
             >
-              <h6 className="font-medium text-fm-grey">{title}</h6>
+              <h6 className="text-fm-gray font-medium">{title}</h6>
               <div className="flex flex-col gap-1">
                 {links.map(({ text, href }) => (
                   <Link
