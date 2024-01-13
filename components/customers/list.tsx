@@ -1,36 +1,28 @@
 'use client'
 
-import { type FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { supabase } from '@/utils/supabase'
+import { type FC, useMemo } from 'react'
 import ErrorBox from '@/components/common/error-box'
 import Loading from '@/components/common/loading'
-import { Customer } from '@/types/customer'
+import { useAppSelector } from '@/store/hooks'
+import CustomersCard from '@/components/customers/card'
 
 const CustomersList: FC = () => {
-  const [customers, setProducts] = useState<Customer[]>()
-  const [error, setError] = useState<string>()
+  const { customers, loading, error } = useAppSelector(
+    (state) => state.customers
+  )
 
   const sectionClass = useMemo(
     () => 'mx-auto flex w-[90%] max-w-[1400px] flex-col gap-2',
     []
   )
 
-  const loadCustomers = useCallback(async () => {
-    const { data, error } = await supabase
-      .from('customers')
-      .select('*')
-      .returns<Customer[]>()
-
-    if (error) {
-      setError(error.message)
-    } else {
-      setProducts(data?.sort((a, b) => b.createdAt - a.createdAt))
-    }
-  }, [])
-
-  useEffect(() => {
-    loadCustomers().then(() => console.log('Customers loaded'))
-  }, [loadCustomers])
+  if (loading) {
+    return (
+      <section className={sectionClass}>
+        <Loading />
+      </section>
+    )
+  }
 
   if (error) {
     return (
@@ -40,19 +32,13 @@ const CustomersList: FC = () => {
     )
   }
 
-  if (!customers) {
-    return (
-      <section className={sectionClass}>
-        <Loading />
-      </section>
-    )
-  }
-
   return (
     <section className={sectionClass}>
-      {customers.map((customer) => (
-        <div key={customer.id}>{customer.name}</div>
-      ))}
+      <div className="grid grid-cols-5">
+        {customers.map((customer) => (
+          <CustomersCard key={customer.id} customer={customer} />
+        ))}
+      </div>
     </section>
   )
 }

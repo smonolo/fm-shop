@@ -2,12 +2,10 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Montserrat } from 'next/font/google'
 import classNames from 'classnames'
-
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
-
-import '@/app/globals.css'
 import StoreProvider from '@/store/provider'
+import '@/app/globals.css'
 
 const font = Montserrat({ subsets: ['latin'] })
 

@@ -46,13 +46,13 @@ const Product: FC = () => {
   }
 
   return (
-    <section className="mx-auto w-full max-w-[1200px] pt-14">
+    <section className="mx-auto w-full max-w-[1200px] pt-20">
       <div className="flex w-full items-center justify-between gap-4">
         <div className="flex w-fit items-center gap-5">
           <h1 className="text-[30px]/[35px] font-bold italic lg:text-[35px]/[40px]">
             {product.name}
           </h1>
-          <div className="w-fit rounded-xl bg-fm-cyan/10 px-4 py-1 text-sm font-semibold uppercase text-fm-aqua">
+          <div className="w-fit rounded-xl bg-fm-cyan/10 px-3 py-1 text-sm font-semibold uppercase text-fm-aqua">
             {product.type}
           </div>
         </div>
@@ -67,14 +67,14 @@ const Product: FC = () => {
         })}
       </p>
       <Image
-        src={product.coverImage}
+        src={product.showcaseImage ?? product.coverImage}
         alt={product.name}
         width={2000}
         height={2000}
-        className="mt-8 max-h-[400px] w-full rounded-2xl object-cover"
+        className="mt-10 max-h-[400px] w-full rounded-2xl object-cover"
       />
       <section className="mt-10 flex flex-col gap-2">
-        <h6 className="font-medium text-fm-cyan">About {product.name}</h6>
+        <h6 className="font-medium text-fm-aqua">About {product.name}</h6>
         <p>{product.description}</p>
       </section>
     </section>

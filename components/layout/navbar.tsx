@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useMemo } from 'react'
+import { type FC, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -79,7 +79,7 @@ const Navbar: FC = () => {
             <Link
               key={text.toLowerCase()}
               href={href}
-              className={classNames('text-sm font-medium', {
+              className={classNames('text-sm font-medium hover:text-fm-aqua', {
                 'text-fm-aqua': pathname === href,
               })}
             >

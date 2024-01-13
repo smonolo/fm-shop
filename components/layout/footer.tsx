@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useMemo } from 'react'
+import { type FC, useMemo } from 'react'
 import Link from 'next/link'
 
 type FooterLink<T extends string = string> = {
@@ -88,7 +88,7 @@ const Footer: FC = () => {
                     key={text.toLowerCase()}
                     href={href}
                     target={href.startsWith('https') ? '_blank' : '_self'}
-                    className="font-medium transition-colors"
+                    className="font-medium transition-colors hover:text-fm-aqua"
                   >
                     {text}
                   </Link>

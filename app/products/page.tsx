@@ -1,14 +1,16 @@
 'use client'
 
-import { type FC, useEffect } from 'react'
+import { type FC, useEffect, useState } from 'react'
 import ProductsList from '@/components/products/list'
 import TitleHeader from '@/components/common/title-header'
 import { loadProducts } from '@/store/slices/products'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import ProductsSearch from '@/components/products/search'
 
 const Products: FC = () => {
   const dispatch = useAppDispatch()
   const products = useAppSelector((state) => state.products.products)
+  const [query, setQuery] = useState<string>()
 
   useEffect(() => {
     if (!products.length) {
@@ -21,8 +23,10 @@ const Products: FC = () => {
       <TitleHeader
         title="What are you looking for?"
         subtitle="Find the mod that best fits your needs."
-      />
-      <ProductsList />
+      >
+        <ProductsSearch setQuery={setQuery} />
+      </TitleHeader>
+      <ProductsList query={query} />
     </section>
   )
 }

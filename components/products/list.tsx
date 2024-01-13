@@ -5,13 +5,24 @@ import ErrorBox from '@/components/common/error-box'
 import ProductsCard from '@/components/products/card'
 import Loading from '@/components/common/loading'
 import { useAppSelector } from '@/store/hooks'
+import { filterProducts } from '@/utils/products'
+import { Product } from '@/types/product'
 
-const ProductsList: FC = () => {
+type Props = {
+  query?: string
+}
+
+const ProductsList: FC<Props> = ({ query }) => {
   const { products, loading, error } = useAppSelector((state) => state.products)
 
   const sectionClass = useMemo(
     () => 'mx-auto flex w-[90%] max-w-[1400px] flex-col gap-2',
     []
+  )
+
+  const filteredProducts = useMemo(
+    (): Product[] => filterProducts(products, query),
+    [products, query]
   )
 
   if (loading) {
@@ -32,7 +43,7 @@ const ProductsList: FC = () => {
 
   return (
     <section className={sectionClass}>
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <ProductsCard key={product.id} product={product} />
       ))}
     </section>

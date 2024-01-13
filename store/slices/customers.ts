@@ -1,5 +1,5 @@
 import type { Customer } from '@/types/customer'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { supabase } from '@/utils/supabase'
 import type { RootDispatch } from '@/store'
 
