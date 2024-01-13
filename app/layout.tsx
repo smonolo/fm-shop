@@ -7,6 +7,7 @@ import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 
 import '@/app/globals.css'
+import StoreProvider from '@/store/provider'
 
 const font = Montserrat({ subsets: ['latin'] })
 
@@ -17,18 +18,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={classNames(font.className, [
-          'relative m-0 flex min-h-screen w-full flex-col gap-10 bg-fm-dark p-0 text-fm-light',
-        ])}
-      >
-        <Navbar />
-        <main className="h-fit grow bg-fm-background bg-cover bg-center bg-no-repeat py-20">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body
+          className={classNames(font.className, [
+            'relative m-0 flex min-h-screen w-full flex-col gap-10 bg-fm-dark p-0 text-fm-light',
+          ])}
+        >
+          <Navbar />
+          <main className="h-fit grow bg-fm-background bg-cover bg-center bg-no-repeat py-20">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
+    </StoreProvider>
   )
 }

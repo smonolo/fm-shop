@@ -1,51 +1,46 @@
 'use client'
 
-import { type FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { type FC, useEffect, useMemo } from 'react'
 import type { Product } from '@/types/product'
-import { supabase } from '@/utils/supabase'
 import { useParams } from 'next/navigation'
 import ErrorBox from '@/components/common/error-box'
 import Image from 'next/image'
 import LinkButton from '@/components/common/link-button'
 import Loading from '@/components/common/loading'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { loadProducts } from '@/store/slices/products'
 
 const Product: FC = () => {
   const params = useParams()
-  const [product, setProduct] = useState<Product>()
-  const [error, setError] = useState<string>()
+  const { products, loading, error } = useAppSelector((state) => state.products)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    if (!products.length) {
+      dispatch(loadProducts())
+    }
+  }, [dispatch, products.length])
 
   const sectionClass = useMemo(() => 'mx-auto w-full max-w-[1200px] pt-14', [])
 
-  const loadProduct = useCallback(async () => {
-    const { data, error } = await supabase
-      .from('products')
-      .select('*')
-      .eq('id', params.id)
-      .single<Product>()
+  const product = useMemo(
+    (): Product | undefined =>
+      products.find((product) => product.id === params.id),
+    [params.id, products]
+  )
 
-    if (error) {
-      setError(error.message)
-    } else {
-      setProduct(data)
-    }
-  }, [params.id])
-
-  useEffect(() => {
-    loadProduct().then(() => console.log('Product loaded'))
-  }, [loadProduct])
-
-  if (error) {
+  if (loading) {
     return (
       <section className={sectionClass}>
-        <ErrorBox error={error} />
+        <Loading />
       </section>
     )
   }
 
-  if (!product) {
+  if (error || !product) {
     return (
       <section className={sectionClass}>
-        <Loading />
+        <ErrorBox error={error ?? undefined} />
       </section>
     )
   }
@@ -55,35 +50,32 @@ const Product: FC = () => {
       <div className="flex w-full items-center justify-between gap-4">
         <div className="flex w-fit items-center gap-5">
           <h1 className="text-[30px]/[35px] font-bold italic lg:text-[35px]/[40px]">
-            {product?.name}
+            {product.name}
           </h1>
           <div className="w-fit rounded-xl bg-fm-cyan/10 px-4 py-1 text-sm font-semibold uppercase text-fm-aqua">
-            {product?.type}
+            {product.type}
           </div>
         </div>
-        <LinkButton href={product?.shopLink!} text="Buy" />
+        <LinkButton href={product.shopLink} text="Buy" />
       </div>
       <p className="mt-2 text-fm-aqua">
         Released on{' '}
-        {new Date(product?.releaseDate!).toLocaleDateString(
-          navigator.language,
-          {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }
-        )}
+        {new Date(product.releaseDate!).toLocaleDateString(navigator.language, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
       </p>
       <Image
-        src={product?.coverImage!}
-        alt={product?.name!}
+        src={product.coverImage}
+        alt={product.name}
         width={2000}
         height={2000}
         className="mt-8 max-h-[400px] w-full rounded-2xl object-cover"
       />
       <section className="mt-10 flex flex-col gap-2">
-        <h6 className="font-medium text-fm-cyan">About {product?.name}</h6>
-        <p>{product?.description}</p>
+        <h6 className="font-medium text-fm-cyan">About {product.name}</h6>
+        <p>{product.description}</p>
       </section>
     </section>
   )

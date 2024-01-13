@@ -1,10 +1,21 @@
 'use client'
 
-import type { FC } from 'react'
+import { type FC, useEffect } from 'react'
 import TitleHeader from '@/components/common/title-header'
 import CustomersList from '@/components/customers/list'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { loadCustomers } from '@/store/slices/customers'
 
 const Customers: FC = () => {
+  const dispatch = useAppDispatch()
+  const customers = useAppSelector((state) => state.customers.customers)
+
+  useEffect(() => {
+    if (!customers.length) {
+      dispatch(loadCustomers())
+    }
+  }, [dispatch, customers.length])
+
   return (
     <section>
       <TitleHeader
