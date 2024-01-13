@@ -2,9 +2,13 @@
 
 import type { FC } from 'react'
 
-const ErrorBox: FC = () => {
+type Props = {
+  error?: string
+}
+
+const ErrorBox: FC<Props> = ({ error }) => {
   return (
-    <div className="mx-auto mt-20 flex w-fit flex-col gap-4 text-center">
+    <div className="mx-auto  flex w-fit flex-col gap-4 text-center">
       <h1 className="text-[30px]/[35px] font-bold italic lg:text-[40px]/[50px]">
         Something went wrong
       </h1>
@@ -12,6 +16,7 @@ const ErrorBox: FC = () => {
         It looks like we could not perform the requested action. Please try
         again later.
       </p>
+      {error && <p className="text-fm-gray">Error: {error}</p>}
     </div>
   )
 }

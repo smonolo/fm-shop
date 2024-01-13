@@ -1,7 +1,7 @@
 export type Product = {
   id: string
   name: string
-  type: 'interior'
+  type: string
   description: string
   shopLink: string
   coverImage: string
