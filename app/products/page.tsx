@@ -1,13 +1,16 @@
 'use client'
 
 import type { FC } from 'react'
-import ProductsHeader from '@/components/products/header'
 import ProductsList from '@/components/products/list'
+import TitleHeader from '@/components/common/title-header'
 
 const Products: FC = () => {
   return (
     <section>
-      <ProductsHeader />
+      <TitleHeader
+        title="What are you looking for?"
+        subtitle="Find the mod that best fits your needs."
+      />
       <ProductsList />
     </section>
   )

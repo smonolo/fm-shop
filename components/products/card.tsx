@@ -12,7 +12,7 @@ const ProductsCard: FC<Props> = ({ product }) => {
   return (
     <Link
       href={`/products/${product.id}`}
-      className="group mx-auto flex w-full cursor-pointer items-center overflow-hidden rounded-3xl bg-fm-cyan/10 backdrop-blur md:w-[80%]"
+      className="group mx-auto flex w-full cursor-pointer items-center overflow-hidden rounded-3xl bg-fm-cyan/10 backdrop-blur hover:bg-fm-cyan/20 md:w-[80%]"
     >
       <div className="flex h-fit w-full items-center justify-between gap-4 px-16 py-8">
         <div className="flex w-fit items-baseline gap-2">

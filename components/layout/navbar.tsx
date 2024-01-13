@@ -54,7 +54,7 @@ const Navbar: FC = () => {
   )
 
   return (
-    <nav className="fixed left-[50%] top-0 mx-auto grid w-[90%] max-w-[1600px] translate-x-[-50%] grid-cols-3 gap-4 py-5 backdrop-blur-lg">
+    <nav className="fixed left-[50%] top-0 mx-auto grid w-[90%] max-w-[1600px] translate-x-[-50%] grid-cols-3 gap-4 py-5 backdrop-blur">
       <div className="flex h-full w-full items-center justify-start">
         <Link href="/" className="block w-fit">
           <Image

@@ -63,13 +63,28 @@ const Product: FC = () => {
         </div>
         <LinkButton href={product?.shopLink!} text="Buy" />
       </div>
+      <p className="mt-2 text-fm-aqua">
+        Released on{' '}
+        {new Date(product?.releaseDate!).toLocaleDateString(
+          navigator.language,
+          {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }
+        )}
+      </p>
       <Image
         src={product?.coverImage!}
         alt={product?.name!}
         width={2000}
         height={2000}
-        className="mt-8 w-full rounded-2xl object-cover"
+        className="mt-8 max-h-[400px] w-full rounded-2xl object-cover"
       />
+      <section className="mt-10 flex flex-col gap-2">
+        <h6 className="font-medium text-fm-cyan">About {product?.name}</h6>
+        <p>{product?.description}</p>
+      </section>
     </section>
   )
 }
