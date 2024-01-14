@@ -20,6 +20,10 @@ const Footer: FC = () => {
         title: 'Company',
         links: [
           {
+            text: 'About',
+            href: '/about',
+          },
+          {
             text: 'Products',
             href: '/products',
           },
@@ -34,7 +38,7 @@ const Footer: FC = () => {
         ],
       },
       {
-        title: 'About',
+        title: 'Product',
         links: [
           {
             text: 'Shop',
@@ -75,7 +79,7 @@ const Footer: FC = () => {
             replicating our products without obtaining our explicit consent.
           </p>
         </section>
-        <div className="flex w-fit gap-10">
+        <div className="flex w-fit gap-16">
           {categories.map(({ title, links }) => (
             <section
               key={title.toLowerCase()}

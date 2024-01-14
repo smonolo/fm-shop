@@ -9,8 +9,8 @@ type Props = PropsWithChildren<{
 
 const TitleHeader: FC<Props> = ({ title, subtitle, children }) => {
   return (
-    <div className="w-full px-10 py-20 lg:px-20 lg:py-36">
-      <h1 className="text-center text-[35px]/[45px] font-bold italic lg:text-[50px]/[60px]">
+    <div className="w-full px-10 py-20 lg:px-20 lg:py-32">
+      <h1 className="text-center text-[35px]/[45px] font-bold italic lg:text-[45px]/[55px]">
         {title}
       </h1>
       <p className="mt-2 text-center font-medium text-fm-aqua lg:text-lg">

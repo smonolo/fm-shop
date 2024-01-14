@@ -33,14 +33,6 @@ const Navbar: FC = () => {
         text: 'Jobs',
         href: '/jobs',
       },
-      {
-        text: 'Support',
-        href: '/support',
-      },
-      {
-        text: 'About',
-        href: '/about',
-      },
     ],
     []
   )
