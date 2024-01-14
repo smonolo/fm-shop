@@ -9,4 +9,5 @@ export type Product = {
   showcaseImage?: string
   additionalDetails?: string
   tags?: string[]
+  price: number
 }

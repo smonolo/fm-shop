@@ -56,7 +56,13 @@ const Product: FC = () => {
             {product.type}
           </div>
         </div>
-        <LinkButton href={product.shopLink} text="Buy" />
+        <LinkButton
+          href={product.shopLink}
+          text={`Buy ${Intl.NumberFormat(navigator.language, {
+            style: 'currency',
+            currency: 'EUR',
+          }).format(product.price)}`}
+        />
       </div>
       <p className="mt-2 text-fm-aqua">
         Released on{' '}

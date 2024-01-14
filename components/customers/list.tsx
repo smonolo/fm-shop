@@ -34,7 +34,7 @@ const CustomersList: FC = () => {
 
   return (
     <section className={sectionClass}>
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-5 gap-8">
         {customers.map((customer) => (
           <CustomersCard key={customer.id} customer={customer} />
         ))}
