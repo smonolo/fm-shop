@@ -3,7 +3,7 @@
 import { type FC, useMemo } from 'react'
 import ErrorBox from '@/components/common/error-box'
 import ProductsCard from '@/components/products/card'
-import Loading from '@/components/common/loading'
+import InfoBox from '@/components/common/info-box'
 import { useAppSelector } from '@/store/hooks'
 import { filterProducts } from '@/utils/products'
 import { Product } from '@/types/product'
@@ -28,7 +28,7 @@ const ProductsList: FC<Props> = ({ query }) => {
   if (loading) {
     return (
       <section className={sectionClass}>
-        <Loading />
+        <InfoBox />
       </section>
     )
   }
@@ -37,6 +37,14 @@ const ProductsList: FC<Props> = ({ query }) => {
     return (
       <section className={sectionClass}>
         <ErrorBox error={error} />
+      </section>
+    )
+  }
+
+  if (!filteredProducts.length) {
+    return (
+      <section className={sectionClass}>
+        <InfoBox text="No products to show" />
       </section>
     )
   }

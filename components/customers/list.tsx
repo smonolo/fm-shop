@@ -2,7 +2,7 @@
 
 import { type FC, useMemo } from 'react'
 import ErrorBox from '@/components/common/error-box'
-import Loading from '@/components/common/loading'
+import InfoBox from '@/components/common/info-box'
 import { useAppSelector } from '@/store/hooks'
 import CustomersCard from '@/components/customers/card'
 
@@ -19,7 +19,7 @@ const CustomersList: FC = () => {
   if (loading) {
     return (
       <section className={sectionClass}>
-        <Loading />
+        <InfoBox />
       </section>
     )
   }
@@ -28,6 +28,14 @@ const CustomersList: FC = () => {
     return (
       <section className={sectionClass}>
         <ErrorBox error={error} />
+      </section>
+    )
+  }
+
+  if (!customers.length) {
+    return (
+      <section className={sectionClass}>
+        <InfoBox text="No customers to show" />
       </section>
     )
   }

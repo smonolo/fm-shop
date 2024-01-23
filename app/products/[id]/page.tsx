@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation'
 import ErrorBox from '@/components/common/error-box'
 import Image from 'next/image'
 import LinkButton from '@/components/common/link-button'
-import Loading from '@/components/common/loading'
+import InfoBox from '@/components/common/info-box'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { loadProducts } from '@/store/slices/products'
 
@@ -32,7 +32,7 @@ const Product: FC = () => {
   if (loading) {
     return (
       <section className={sectionClass}>
-        <Loading />
+        <InfoBox />
       </section>
     )
   }
