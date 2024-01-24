@@ -2,9 +2,9 @@
 
 branches=("staging" "main")
 
-for i in ${branches[@]}; do
-  echo "Checking if branch should be deployed"
+echo "Checking if branch should be deployed"
 
+for i in ${branches[@]}; do
   if [[ $i == $VERCEL_GIT_COMMIT_REF ]]; then
     echo "Branch $i should be deployed. Proceeding with build step..."
     exit 1
