@@ -1,19 +1,25 @@
-import type { FC, ReactNode } from 'react'
-import Link from 'next/link'
+import type { FC, PropsWithChildren } from 'react'
 
 type Props = {
   href: string
   text?: string
   className?: string
-  children?: ReactNode
 }
 
-const LinkButton: FC<Props> = ({ href, text, className, children }) => {
+const LinkButton: FC<PropsWithChildren<Props>> = ({
+  href,
+  text,
+  className,
+  children,
+}) => {
   return (
     <a
       href={href}
       target="_blank"
-      className={className || 'relative flex w-fit items-center gap-2 rounded-full bg-fm-aqua px-6 py-2.5 text-fm-dark shadow-fm-aqua transition-colors duration-500 hover:bg-fm-cyan'}
+      className={
+        className ||
+        'relative flex w-fit items-center gap-2 rounded-full bg-fm-aqua px-6 py-2.5 text-fm-dark shadow-fm-aqua transition-colors duration-500 hover:bg-fm-cyan'
+      }
     >
       {text ? (
         <>
@@ -21,7 +27,7 @@ const LinkButton: FC<Props> = ({ href, text, className, children }) => {
           <i className="bi bi-chevron-right text-xs" />
         </>
       ) : (
-        <>{children}</>
+        children
       )}
     </a>
   )

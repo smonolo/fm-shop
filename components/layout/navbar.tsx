@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { usePathname } from 'next/navigation'
-import LinkButton from '../common/link-button'
+import LinkButton from '@/components/common/link-button'
 
 type NavbarLink<T extends string = string> = {
   text: Capitalize<T>
