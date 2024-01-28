@@ -1,8 +1,14 @@
 ## Development
 
+### Guidelines
+
+Avoid using `'use server'` for now.
+
+### Git
+
 New feature flow (branches): `feature -> dev -> staging -> main`
 
-### Branches
+#### Branches
 
 - `main`: Production branch
 - `staging`: Staging branch
