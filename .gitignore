@@ -40,3 +40,7 @@ next-env.d.ts
 
 # turbo
 .turbo
+
+.flaskenv*
+!.env.project
+!.env.vault
