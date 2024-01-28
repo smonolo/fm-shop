@@ -30,7 +30,7 @@ const ProductsCard: FC<Props> = ({ product }) => {
               currency: 'EUR',
             }).format(product.price)}
           </p>
-          <i className="bi bi-chevron-right p-2 text-2xl text-fm-gray transition-colors group-hover:text-fm-aqua" />
+          <i className="bi bi-chevron-right p-2 text-2xl text-fm-gray transition-colors duration-500 group-hover:text-fm-aqua" />
         </div>
       </div>
     </Link>

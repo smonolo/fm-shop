@@ -92,7 +92,7 @@ const Footer: FC = () => {
                     key={text.toLowerCase()}
                     href={href}
                     target={href.startsWith('https') ? '_blank' : '_self'}
-                    className="font-medium transition-colors hover:text-fm-aqua"
+                    className="font-medium transition-colors duration-500 hover:text-fm-aqua"
                   >
                     {text}
                   </Link>
