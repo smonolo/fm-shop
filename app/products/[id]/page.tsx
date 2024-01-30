@@ -56,14 +56,15 @@ const Product: FC = () => {
             {product.type}
           </div>
         </div>
-        <LinkButton
-          href={product.shopLink}
-          text={`Buy ${Intl.NumberFormat(navigator.language, {
-            style: 'currency',
-            currency: 'EUR',
-          }).format(product.price)}`}
-          className="max-sm:hidden"
-        />
+        <div className="max-sm:hidden">
+          <LinkButton
+            href={product.shopLink}
+            text={`Buy ${Intl.NumberFormat(navigator.language, {
+              style: 'currency',
+              currency: 'EUR',
+            }).format(product.price)}`}
+          />
+        </div>
       </div>
       <p className="mt-2 text-fm-aqua">
         Released on{' '}
@@ -91,7 +92,7 @@ const Product: FC = () => {
           style: 'currency',
           currency: 'EUR',
         }).format(product.price)}`}
-        className="w-full justify-center sm:hidden"
+        className="relative flex w-full items-center justify-center gap-2 rounded-full bg-fm-aqua px-6 py-2.5 text-fm-dark shadow-fm-aqua transition-colors duration-500 hover:bg-fm-cyan sm:hidden"
       />
     </section>
   )
