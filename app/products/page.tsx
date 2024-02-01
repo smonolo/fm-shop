@@ -5,7 +5,7 @@ import ProductsList from '@/components/products/list'
 import TitleHeader from '@/components/common/title-header'
 import { loadProducts } from '@/store/slices/products'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import ProductsSearch from '@/components/products/search'
+import SearchInput from '@/components/common/search-input'
 
 const Products: FC = () => {
   const dispatch = useAppDispatch()
@@ -24,7 +24,7 @@ const Products: FC = () => {
         title="What are you looking for?"
         subtitle="Find the mod that best fits your needs."
       >
-        <ProductsSearch setQuery={setQuery} />
+        <SearchInput setQuery={setQuery} />
       </TitleHeader>
       <ProductsList query={query} />
     </section>

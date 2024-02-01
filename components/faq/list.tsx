@@ -4,26 +4,23 @@ import { type FC, useMemo } from 'react'
 import ErrorBox from '@/components/common/error-box'
 import InfoBox from '@/components/common/info-box'
 import { useAppSelector } from '@/store/hooks'
-import { filterFaqs } from '@/utils/faqs'
-import { Faq } from '@/types/Faq'
-import FaqsCard from './card'
+import { filterFAQ } from '@/utils/faq'
+import type { FAQ } from '@/types/faq'
+import FAQCard from '@/components/faq/card'
 
 type Props = {
   query?: string
 }
 
-const FaqList: FC<Props> = ({ query }) => {
-  const { faqs, loading, error } = useAppSelector((state) => state.faqs)
+const FAQList: FC<Props> = ({ query }) => {
+  const { faq, loading, error } = useAppSelector((state) => state.faq)
 
   const sectionClass = useMemo(
     () => 'mx-auto flex w-[90%] max-w-[1400px] flex-col gap-2',
     []
   )
 
-  const filteredFaqs = useMemo(
-    (): Faq[] => filterFaqs(faqs, query),
-    [faqs, query]
-  )
+  const filteredFAQ = useMemo((): FAQ[] => filterFAQ(faq, query), [faq, query])
 
   if (loading) {
     return (
@@ -41,7 +38,7 @@ const FaqList: FC<Props> = ({ query }) => {
     )
   }
 
-  if (!filteredFaqs.length) {
+  if (!filteredFAQ.length) {
     return (
       <section className={sectionClass}>
         <InfoBox text="No FAQ to show" />
@@ -51,11 +48,11 @@ const FaqList: FC<Props> = ({ query }) => {
 
   return (
     <section className={sectionClass}>
-      {filteredFaqs.map((faq) => (
-        <FaqsCard key={faq.id} faq={faq} />
+      {filteredFAQ.map((faq) => (
+        <FAQCard key={faq.id} faq={faq} />
       ))}
     </section>
   )
 }
 
-export default FaqList
+export default FAQList

@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import products from '@/store/slices/products'
 import customers from '@/store/slices/customers'
-import faqs from './slices/faqs'
+import faq from './slices/faq'
 
 const store = configureStore({
-  reducer: combineReducers({ products, customers, faqs }),
+  reducer: combineReducers({ products, customers, faq }),
   devTools: process.env.NODE_ENV !== 'production',
 })
 

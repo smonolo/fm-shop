@@ -1,6 +1,6 @@
-import { Faq } from '@/types/Faq'
+import type { FAQ } from '@/types/faq'
 
-export const filterFaqs = (faqs: Faq[], query?: string): Faq[] => {
+export const filterFAQ = (faqs: FAQ[], query?: string): FAQ[] => {
   if (query) {
     return faqs.filter((faq) =>
       faq.question.toLowerCase().includes(query.toLowerCase())

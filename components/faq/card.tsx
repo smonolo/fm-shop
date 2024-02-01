@@ -1,15 +1,14 @@
 'use client'
 
-import { type FC } from 'react'
+import type { FC } from 'react'
 import Link from 'next/link'
-import { Faq } from '@/types/Faq'
+import { FAQ } from '@/types/faq'
 
 type Props = {
-  faq: Faq
+  faq: FAQ
 }
 
-const FaqsCard: FC<Props> = ({ faq }) => {
-  //test faq card
+const FAQCard: FC<Props> = ({ faq }) => {
   return (
     <Link
       href={`/products/${faq.id}`}
@@ -25,4 +24,4 @@ const FaqsCard: FC<Props> = ({ faq }) => {
   )
 }
 
-export default FaqsCard
+export default FAQCard

@@ -4,27 +4,27 @@ import { useState, type FC, useEffect } from 'react'
 import TitleHeader from '@/components/common/title-header'
 import FaqList from '@/components/faq/list'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { loadFaqs } from '@/store/slices/faqs'
-import FaqsSearch from '@/components/faq/search'
+import { loadFAQ } from '@/store/slices/faq'
+import SearchInput from '@/components/common/search-input'
 
 const FAQ: FC = () => {
   const dispatch = useAppDispatch()
-  const faqs = useAppSelector((state) => state.products.products)
+  const faq = useAppSelector((state) => state.products.products)
   const [query, setQuery] = useState<string>()
 
   useEffect(() => {
-    if (!faqs.length) {
-      dispatch(loadFaqs())
+    if (!faq.length) {
+      dispatch(loadFAQ())
     }
-  }, [dispatch, faqs.length])
+  }, [dispatch, faq.length])
 
   return (
     <section>
       <TitleHeader
-        title="Frequently asked questions"
+        title="Frequently Asked Questions"
         subtitle="Instant insights await! Dive into our FAQ for swift answers to frequently asked questions."
       >
-        <FaqsSearch setQuery={setQuery} />
+        <SearchInput setQuery={setQuery} />
       </TitleHeader>
       <FaqList query={query} />
     </section>
