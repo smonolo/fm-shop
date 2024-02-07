@@ -31,8 +31,8 @@ const Navbar: FC = () => {
         href: '/customers',
       },
       {
-        text: 'Jobs',
-        href: '/jobs',
+        text: 'FAQ',
+        href: '/faq',
       },
     ],
     []
@@ -67,7 +67,7 @@ const Navbar: FC = () => {
         </Link>
       </div>
       <div className="flex h-full w-full items-center justify-center">
-        <div className="flex w-fit items-center gap-4 rounded-full bg-fm-cyan/10 px-3 py-2 sm:px-6 sm:py-2.5 lg:gap-7">
+        <div className="flex w-fit items-center gap-4 rounded-full bg-fm-cyan/10 px-4 py-2 sm:px-6 sm:py-2.5 lg:gap-7">
           {links.map(({ text, href }) => (
             <Link
               key={text.toLowerCase()}
