@@ -9,7 +9,7 @@ import SearchInput from '@/components/common/search-input'
 
 const FAQ: FC = () => {
   const dispatch = useAppDispatch()
-  const faq = useAppSelector((state) => state.products.products)
+  const faq = useAppSelector((state) => state.faq.faq)
   const [query, setQuery] = useState<string>()
 
   useEffect(() => {
